@@ -1,2 +1,2 @@
 # Playground
-Repositório com algoritmos testes
+Repositório usado para criar algoritmos diversos
