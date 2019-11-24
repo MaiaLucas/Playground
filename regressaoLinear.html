@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="jQuery.min.js"></script>
+    <title>REGRESSAO LINEAR</title>
+</head>
+<body>
+    <header>
+        <h1>Regressão Linear Simples</h1>
+        <h3>Dados Base</h3>
+        <h4>Dado 1: ANO -> 1980, POP -> 2,1 </h4>
+        <h4>Dado 2: ANO -> 1985, POP -> 2,9 </h4>
+        <h4>Dado 3: ANO -> 1990, POP -> 3,2 </h4>
+        <h4>Dado 4: ANO -> 1995, POP -> 4,1 </h4>
+        <h4>Dado 5: ANO -> 2000, POP -> 4,9 </h4>
+    </header>
+    <main>
+        <div id="app">
+            <label >
+                Escolha um ano: <br/>
+                <input type="number" id="year" value="2000" min="2000" />
+                <a type="button" onclick="start()" >Calcular Pop</a>
+            </label>
+        </div>
+        <a href="index.html" class="button">Voltar</a>
+    </main>
+    <script src="js/regressaoLinear.js"></script>
+</body>
+</html>
