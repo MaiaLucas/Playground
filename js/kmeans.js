@@ -81,6 +81,7 @@ function start() {
     }
 }
 
+// exibe na tela os clusters
 function printCluster(cluster) {
     let nome = cluster.map(data => data.name)
     let x = cluster.map(data => data.x)
@@ -91,6 +92,8 @@ function printCluster(cluster) {
         console.log(`Dado: ${nome[i]}, X: ${x[i]}, Y: ${y[i]}, DistânciaC1: ${distancia1[i]}, DistânciaC2: ${distancia2[i]}`)
     }
 }
+
+// exibena tela os novos centróides
 function printNewC(C1, C2) {
     console.log()
     console.log(`NEW C1 -> X: ${C1.x}, Y: ${C1.y}`)
@@ -100,7 +103,7 @@ function printNewC(C1, C2) {
     console.log()
 }
 
-// Geração dos dados
+// Geração dos dados fixo
 let D1 = new Data(9, 7, 'D1'); let D2 = new Data(2, 2, 'D2')
 let D3 = new Data(3, 3, 'D3'); let D4 = new Data(5, 6, 'D4')
 let D5 = new Data(5, 2, 'D5'); let D6 = new Data(3, 7, 'D6')

@@ -85,7 +85,7 @@ function intercept(data) {
 
 function printEq(data) {
 	let div = $('<div></div>')
-	console.log(`A equação da reta: pop = ${slope(data)} * ano + (${intercept(data)})`)
+	// console.log(`A equação da reta: pop = ${slope(data)} * ano + (${intercept(data)})`)
 	div.append(`A equação da reta: pop = ${slope(data)} * ano + (${intercept(data)})`)
 	app.append(div)
 }
@@ -94,8 +94,8 @@ function printEq(data) {
 function discoverY(data,x) {
 	let pop = (slope(data) * x) + intercept(data)
 	let div = $('<div></div>')
-	console.log(`Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}`)
-	div.append(`Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}`)
+	// console.log(`Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}`)
+	div.append(`<h3>Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}</h3>`)
 	app.append(div)
 
 	data.push(new Data(x, pop))
@@ -112,10 +112,11 @@ function print(data) {
 	div.append(`---------------------------------------<br/>`)
 	// console.log(`Somatorio Y = ${sumY(data)}`)
 	div.append(`
-	Somatorio POP = ${sumY(data)} <br />
-	Somatorio ANO = ${sumX(data)} <br />
-	Média ANO = ${midX(data)} <br />
-	Média POP = ${midY(data)} <br />
+	Somatorio POP	  = ${sumY(data)} <br />
+	Somatorio ANO 	  = ${sumX(data)} <br />
+	Somatorio ANOxPOP = ${sumXY(data)} <br />
+	Média ANO		  = ${midX(data)} <br />
+	Média POP		  = ${midY(data)} <br />
 	`)
 	// console.log(`Somatorio X = ${sumX(data)}`)
 	// console.log(`Média X = ${midX(data)}`)
