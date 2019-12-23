@@ -10,7 +10,7 @@ Repository for simple projects
 ## Password Generate
 * Create a random password
 
-## Simple Linear Regression
+## Simple Linear Regression (uncomplete)
 
 * AI discipline algorithm;
 * Calculates population probability in a given year;
