@@ -111,6 +111,7 @@ body {
 
 .modulo > ul > li > button  {
     cursor: pointer;
+    font-size: medium;
 }
 
 .modulo > ul > li:hover {
@@ -149,3 +150,16 @@ body {
 
 .modulo.roxo-escuro { border: 2px solid #4A148C; }
 .modulo.roxo-escuro > h3 { background-color: #4A148C; }
+
+input[type='text'] {
+    height: 30px;
+    width: 400px;
+    background: #bcbdcf;
+    border: none;
+}
+
+input[type='number'] {
+    height: 30px;
+    background: #bcbdcf;
+    border: none;
+}

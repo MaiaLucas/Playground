@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="js/jQuery.min.js"></script>
+    <title>Gerador de senha</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Gerador de senha</h1>
+    </header>
+
+    <main class="principal">
+        <div class="conteudo">
+            <nav class="modulos">
+                <div class="modulo roxo-escuro">
+                    <h3>Gerador de Senha</h3>
+                    <ul>
+                        <li>
+                            <label>
+                                Senha
+                                <input type="text" id="password" value='' readonly/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                Quantidade de caracteres:
+                                <input type='number' id='pwdLength' value="8" min="8" max="20"/>
+                            </label>
+                        </li>
+                        
+                        <li>
+                            <label>
+                                Incluir letras maiúsculas? 
+                                <input type='checkbox' id='uppercase' checked />
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                Incluir letras minúsculas? 
+                                <input type='checkbox' id='lowercase' checked/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                Incluir símbolos? 
+                                <input type='checkbox' id='symbols' />
+                            </label>
+                        </li>
+
+                        <li>
+                            <label>
+                                Incluir números? 
+                                <input type='checkbox' id='numbers' checked/>
+                            </label>
+                        </li>
+
+                        <li>
+                            <button id="genPassword" onclick="generateRandomPassword()">Gerar Senha</button> <button onclick="voltar()">Voltar</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="js/pwdGenerate.js"></script>
+    <script type="text/javascript" src="js/global.js"></script>
+</body>
+</html>

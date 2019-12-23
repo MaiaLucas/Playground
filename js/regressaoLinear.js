@@ -11,7 +11,7 @@ function Data(x, y) {
 }
 
 // FAZ O SOMATÓRIO DOS X'S
-function sumX(data) {
+function somatorioEixoX(data) {
 	let sum = 0;
 	for(let i = 0; i < data.length; i++) {
 		sum += data[i].x
@@ -20,7 +20,7 @@ function sumX(data) {
 }
 
 // FAZ O SOMATÓRIO DOS Y'S
-function sumY(data) {
+function somatorioEixoY(data) {
 	let sum = 0;
 	for(let i = 0; i < data.length; i++) {
 		sum += data[i].y
@@ -29,7 +29,7 @@ function sumY(data) {
 }
 
 // FAZ O SOMATÓRIO DOS XY's
-function sumXY(data) {
+function somatorioEixoXY(data) {
 	let sum = 0;
 	for(let i = 0; i < data.length; i++) {
 		sum += data[i].xy
@@ -38,7 +38,7 @@ function sumXY(data) {
 }
 
 // FAZ O SOMATÓRIO DO QUADRADO DOS X'S
-function sumXPow(data) {
+function somatorioQuadradoEixoX(data) {
 	let sum = 0;
 	for(let i = 0; i < data.length; i++) {
 		sum += Math.pow(data[i].x, 2)
@@ -46,16 +46,8 @@ function sumXPow(data) {
 	return sum
 }
 
-// COEFICIENTE a DA EQUAÇÃO y = ax + b
-function slope(data) {
-	let sup = 0, inf = 0
-	sup = (data.length * sumXY(data)) - (sumX(data) * sumY(data))
-	inf = (data.length * sumXPow(data)) - (sumX(data) * sumX(data))
-	return (sup / inf)
-}
-
 // PEGA A MEDIA DO X
-function midX(data) {
+function mediaX(data) {
 	let count = 0
 	let result = 0
 	for (let i = 0; i < data.length; i++) {
@@ -66,7 +58,7 @@ function midX(data) {
 }
 
 // PEGA A MEDIA DO Y
-function midY(data) {
+function mediaY(data) {
 	let count = 0
 	let result = 0
 	for (let i = 0; i < data.length; i++) {
@@ -76,10 +68,18 @@ function midY(data) {
 	return result
 }
 
+// COEFICIENTE a DA EQUAÇÃO y = ax + b
+function slope(data) {
+	let sup = (data.length * somatorioEixoXY(data)) - (somatorioEixoX(data) * somatorioEixoY(data))
+	let inf = (data.length * somatorioQuadradoEixoX(data)) - (somatorioEixoX(data) * somatorioEixoX(data))
+	
+	return (sup / inf)
+}
+
 // COEFICIENTE b DA EQUAÇÃO y = ax + b
 function intercept(data) {
 	let eq = 0
-	eq = midY(data) - (slope(data) * midX(data))
+	eq = mediaY(data) - (slope(data) * mediaX(data))
 	return eq
 }
 
@@ -88,17 +88,6 @@ function printEq(data) {
 	// console.log(`A equação da reta: pop = ${slope(data)} * ano + (${intercept(data)})`)
 	div.append(`A equação da reta: pop = ${slope(data)} * ano + (${intercept(data)})`)
 	app.append(div)
-}
-
-// FUNÇÃO RESPONSÁVEL POR DESCOBRIR O VALOR DA POSIÇÃO Y DE UM NOVO DADO
-function discoverY(data,x) {
-	let pop = (slope(data) * x) + intercept(data)
-	let div = $('<div></div>')
-	// console.log(`Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}`)
-	div.append(`<h3>Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}</h3>`)
-	app.append(div)
-
-	data.push(new Data(x, pop))
 }
 
 // Imprime todas as informações
@@ -112,17 +101,25 @@ function print(data) {
 	div.append(`---------------------------------------<br/>`)
 	// console.log(`Somatorio Y = ${sumY(data)}`)
 	div.append(`
-	Somatorio POP	  = ${sumY(data)} <br />
-	Somatorio ANO 	  = ${sumX(data)} <br />
-	Somatorio ANOxPOP = ${sumXY(data)} <br />
-	Média ANO		  = ${midX(data)} <br />
-	Média POP		  = ${midY(data)} <br />
+	Somatorio POP	  = ${somatorioEixoY(data)} <br />
+	Somatorio ANO 	  = ${somatorioEixoX(data)} <br />
+	Somatorio ANOxPOP = ${somatorioEixoXY(data)} <br />
+	Média ANO		  = ${mediaX(data)} <br />
+	Média POP		  = ${mediaY(data)} <br />
 	`)
-	// console.log(`Somatorio X = ${sumX(data)}`)
-	// console.log(`Média X = ${midX(data)}`)
-	// console.log(`Média Y = ${midY(data)}`)
 
 	app.append(div)
+}
+
+// FUNÇÃO RESPONSÁVEL POR DESCOBRIR O VALOR DA POSIÇÃO Y DE UM NOVO DADO
+function discoverY(data,x) {
+	let pop = (slope(data) * x) + intercept(data)
+	let div = $('<div></div>')
+	// console.log(`Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}`)
+	div.append(`<h3>Calculo da Populacao do ano ${x} é ${pop.toFixed(2)}</h3>`)
+	app.append(div)
+
+	data.push(new Data(x, pop))
 }
 
 function start() {
